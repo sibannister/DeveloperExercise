@@ -40,5 +40,18 @@ namespace FileData.Tests.Unit
         {
             Assert.Throws<ArgumentException>(() => new FileDataProperties("     "));
         }
+
+        [Test]
+        public void ShouldThrowArgumentExceptionWhenItContainsIllegalPathCharacters()
+        {
+            Assert.Throws<ArgumentException>(() => new FileDataProperties(">"));
+        }
+
+        [Test]
+        public void ShouldThrowArgumentExceptionWhenItContainsIllegalFileNameCharacters()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => new FileDataProperties("c:/test?"));
+            Assert.That(ex.Message.Contains("?"));
+        }
     }
 }
