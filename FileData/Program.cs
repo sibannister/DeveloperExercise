@@ -9,6 +9,8 @@ namespace FileData
     {
         public static void Main(string[] args)
         {
+            var fileDataContext = new FileDataContext(args);
+            fileDataContext.Write(Console.Out);
         }
     }
 }

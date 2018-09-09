@@ -10,8 +10,13 @@ namespace FileData
     public class FileDataProperties
     {
         private readonly string _filePath;
+        private IFileDetails _fileDetails;
 
-        public FileDataProperties(string filePath)
+        public FileDataProperties(string filePath) : this(filePath, new FileDetailsAdapter())
+        {            
+        }
+
+        public FileDataProperties(string filePath, IFileDetails fileDetails)
         {
             if (string.IsNullOrWhiteSpace(filePath))
             {
@@ -24,11 +29,22 @@ namespace FileData
             }
 
             _filePath = filePath;
+            _fileDetails = fileDetails ?? throw new ArgumentNullException(nameof(fileDetails));
         }
 
         private static bool IsValidFileName(string fileName)
         {
             return fileName.IndexOfAny(Path.GetInvalidFileNameChars()) == -1;
+        }
+
+        public int Size()
+        {
+            return _fileDetails.Size(_filePath);
+        }
+
+        public string Version()
+        {
+            return _fileDetails.Version(_filePath);
         }
     }
 }

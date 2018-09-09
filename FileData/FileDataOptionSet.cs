@@ -26,5 +26,15 @@ namespace FileData
             }
             return false;
         }
+
+        public bool ShowVersion()
+        {
+            return _showVersion;
+        }
+
+        public bool ShowSize()
+        {
+            return _showSize;
+        }
     }
 }
