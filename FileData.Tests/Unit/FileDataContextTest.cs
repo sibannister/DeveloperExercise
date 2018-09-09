@@ -15,5 +15,17 @@ namespace FileData.Tests.Unit
         {
             Assert.Throws<ArgumentNullException>(() => new FileDataContext(null));
         }
+
+        [Test]
+        public void ShouldThrowArgumentException()
+        {
+            Assert.Throws<ArgumentException>(() => new FileDataContext(new string[] { }));
+        }
+
+        [Test]
+        public void ShouldThrowFileDetailsOptionSetArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => new FileDataContext(new string[2] { "-v", "c:/test" }, null));
+        }
     }
 }
