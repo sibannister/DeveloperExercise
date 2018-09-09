@@ -8,9 +8,11 @@ namespace FileData
 {
     public class FileDataContext
     {
+        private readonly string[] _args;
+
         public FileDataContext(string[] args)
         {
-
-        }
+            _args = args ?? throw new ArgumentNullException();
+        }        
     }
 }

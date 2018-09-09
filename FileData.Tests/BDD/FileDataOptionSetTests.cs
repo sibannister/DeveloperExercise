@@ -86,4 +86,82 @@ namespace FileData.Tests.BDD
 
         It should_not_have_any_unmatched = () => unmatched.ShouldBeEmpty();
     }
+
+    [Subject("not matching verbose functionality version with dash")]
+    public class when_receiving_version_with_a_single_dash
+    {
+        private static OptionSet optionsSet;
+        private static readonly string arg = "-version";
+        private static List<String> unmatched;
+        Establish context = () => optionsSet = new FileDataOptionSet();
+
+        Because of = () => unmatched = optionsSet.Parse(new[] { arg });
+
+        It should_not_have_any_unmatched = () => unmatched.ShouldContain(arg);
+    }
+
+    [Subject("not matching verbose functionality version with forward slash")]
+    public class when_receiving_version_with_a_forward_slash
+    {
+        private static OptionSet optionsSet;
+        private static readonly string arg = "/version";
+        private static List<String> unmatched;
+        Establish context = () => optionsSet = new FileDataOptionSet();
+
+        Because of = () => unmatched = optionsSet.Parse(new[] { arg });
+
+        It should_not_have_any_unmatched = () => unmatched.ShouldContain(arg);
+    }
+
+    [Subject("matching verbose functionality version with double dash")]
+    public class when_receiving_version_with_a_double_dash
+    {
+        private static OptionSet optionsSet;
+        private static readonly string arg = "--version";
+        private static List<String> unmatched;
+        Establish context = () => optionsSet = new FileDataOptionSet();
+
+        Because of = () => unmatched = optionsSet.Parse(new[] { arg });
+
+        It should_not_have_any_unmatched = () => unmatched.ShouldBeEmpty();
+    }
+
+    [Subject("not matching verbose functionality size with dash")]
+    public class when_receiving_size_with_a_single_dash
+    {
+        private static OptionSet optionsSet;
+        private static readonly string arg = "-size";
+        private static List<String> unmatched;
+        Establish context = () => optionsSet = new FileDataOptionSet();
+
+        Because of = () => unmatched = optionsSet.Parse(new[] { arg });
+
+        It should_not_have_any_unmatched = () => unmatched.ShouldContain(arg);
+    }
+
+    [Subject("not matching verbose functionality size with forward slash")]
+    public class when_receiving_size_with_a_forward_slash
+    {
+        private static OptionSet optionsSet;
+        private static readonly string arg = "/size";
+        private static List<String> unmatched;
+        Establish context = () => optionsSet = new FileDataOptionSet();
+
+        Because of = () => unmatched = optionsSet.Parse(new[] { arg });
+
+        It should_not_have_any_unmatched = () => unmatched.ShouldContain(arg);
+    }
+
+    [Subject("matching verbose functionality size with double dash")]
+    public class when_receiving_size_with_a_double_dash
+    {
+        private static OptionSet optionsSet;
+        private static readonly string arg = "--size";
+        private static List<String> unmatched;
+        Establish context = () => optionsSet = new FileDataOptionSet();
+
+        Because of = () => unmatched = optionsSet.Parse(new[] { arg });
+
+        It should_not_have_any_unmatched = () => unmatched.ShouldBeEmpty();
+    }
 }

@@ -14,8 +14,17 @@ namespace FileData
 
         public FileDataOptionSet()
         {
-            Add("v", "Display Version of the file specified", v => _showVersion = true);
-            Add("s", "Display Size of the file specified", s => _showSize = true);
+            Add("v|version", "Display Version of the file specified", v => _showVersion = true);
+            Add("s|size", "Display Size of the file specified", s => _showSize = true);
+        }
+
+        protected override bool Parse(string argument, OptionContext c)
+        {
+            if (argument.Length < 3 || argument.StartsWith("--"))
+            {
+                return base.Parse(argument, c);
+            }
+            return false;
         }
     }
 }
