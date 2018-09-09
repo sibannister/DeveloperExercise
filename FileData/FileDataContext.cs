@@ -9,7 +9,7 @@ namespace FileData
 {
     public class FileDataContext
     {
-        public const string HelpMessage = "Please specify two arguments./nExample:  -v <file_path>     - For the version of the file";
+        public const string HelpMessage = "Please specify two arguments.\nExample:  -v <file_path>     - For the version of the file";
 
         private readonly string[] _args;
         private readonly FileDataOptionSet _fileDataOptionSet;
