@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="FileDataContext.cs" />
     <Compile Include="FileDataOptionSet.cs" />
+    <Compile Include="FileDataProperties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

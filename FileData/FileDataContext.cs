@@ -24,6 +24,10 @@ namespace FileData
             {
                 throw new ArgumentException("Must have two arguments");
             }
+
+            FileDataProperties = new FileDataProperties(args[1]);
         }
+
+        public FileDataProperties FileDataProperties { get; }
     }
 }
